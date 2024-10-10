@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <a href="index">Add New Book</a>
+   
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Id</th>
+                    <th>Book Name</th>
+                    <th>Book Price</th>
+                    <th>Book Author</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="b : ${books}">
+                    <td th:text="${b.id}"></td>
+                    <td th:text="${b.Name}"></td>
+                    <td th:text="${b.price}"></td>
+                    <td th:text="${b.author}"></td>
+                     <td><a th:href="@{/edit(id=${b.id})}">Edit</a></td>
+                    <td><a th:href="@{/delete(id=${b.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+   
+</body>
+</html>
